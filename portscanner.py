@@ -53,7 +53,7 @@ def main():
         threads = []
         for _ in range(thread_count):
             t = threading.Thread(target=worker, args=(target, queue, open_ports, lock, pbar))
-            daemon = True
+            t.daemon = True
             t.start()
             threads.append(t)
         queue.join()
